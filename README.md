@@ -1,2 +1,2 @@
 # vagrant-nested
-A vagrant config for runnig nested VMs
+A vagrant config for running nested VMs
