@@ -26,3 +26,22 @@ Install the NFS server on Ubuntu:
 
   sudo apt instal nfs-server
 
+
+## How to use this thing
+
+1. Install and configure vagrant.
+
+2. Clone the git repo to a local folder.
+
+3. Run "vagrant up" in the project folder. Wait for the VM to come up
+
+4. Run "vagrant ssh" to login to the level1 VM.
+
+5. Run the following commands in the level1 VM
+
+
+Once you're in the level1 VM, you can run the level2 VM by doing the following:
+
+  sudo -i
+  cd /vagrant/level2
+  vagrant up
