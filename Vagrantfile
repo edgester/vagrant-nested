@@ -11,9 +11,8 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder box_folder, "/vagrant.d", type: "nfs"
 
   config.vm.provision "shell", inline: <<-SHELL
-   dpkg -i /vagrant/vagrant*.deb
-   mkdir -p /root/.vagrant.d/
-   ln -s /vagrant.d /root/.vagrant.d
+    apt -y install ansible
+    ansible-playbook -i localhost, /vagrant/level1-playbook.yml --connection=local
   SHELL
 
   config.vm.provider "virtualbox" do |v|

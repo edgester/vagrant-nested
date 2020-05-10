@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+  - debug:
+      msg: ansible provisioner running
+  
+  - debug:
+      var: ansible_system
+  - name: create directory /root/.vagrant.d
+    file:
+      path: /root/.vagrant.d
+      state: directory
+  - name: symlink vagrant boxes
+    file:
+      src: /vagrant.d/boxes
+      path: /root/.vagrant.d/boxes
+      state: link
+  - name: Install NFS server and virtualbox
+    apt:
+      pkg:
+        - nfs-server
+        - virtualbox
+  - name: Install Vagrant
+    apt:
+      deb: /vagrant/vagrant_2.2.9_x86_64.deb
