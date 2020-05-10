@@ -16,6 +16,11 @@ Vagrant.configure("2") do |config|
    ln -s /vagrant.d /root/.vagrant.d
   SHELL
 
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 4096
+    v.cpus = 2
+  end
+
   config.vm.provider :libvirt do |libvirt|
     # Enable KVM nested virtualization
     libvirt.nested = true
