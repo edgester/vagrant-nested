@@ -31,6 +31,9 @@ Vagrant.configure("2") do |config|
     # Use a different management network
     libvirt.management_network_name = 'vagrant-libvirt-level1'
     libvirt.management_network_address = '192.168.124.0/24'
+
+    # Improve disk performance. Don't care about losing data.
+    libvirt.volume_cache = 'unsafe'
   end
 
   #  apt caching
